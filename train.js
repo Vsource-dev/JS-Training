@@ -1,90 +1,36 @@
+const fruits = document.getElementsByClassName('fruit');
 
-let display = document.getElementById('timer');
-let lapDisplay = document.getElementById('laps');
+Array.from(fruits).forEach(fruit=> {
 
-let timer = null;
-let startTime = 0;
-let elapsedTime = 0;
-let isRunning = false;
-let count = 0;
+    fruit.style.backgroundColor = 'red'
 
-function start(){
+});
 
-    if(!isRunning){
+const h4elem = document.getElementsByTagName('h4');
 
-        startTime = Date.now() - elapsedTime;
-        timer = setInterval(updateDisplay, 10);
-        isRunning = true;
+Array.from(h4elem).forEach(h4elem=>{
 
-    }
+    h4elem.style.backgroundColor = 'yellow'
 
-}
+});
 
-function stop(){
+const lists = document.getElementsByTagName('li');
 
-    if(isRunning){
+Array.from(lists).forEach(lists => {
 
-        clearInterval(timer);
-        elapsedTime = Date.now() - startTime;
-        isRunning = false;
+    lists.style.fontFamily = 'Monospace'
 
-    }
+});
 
-}
+const element = document.querySelector('.fruit');
 
-function reset(){
+element.style.backgroundColor = 'green'
 
-    clearInterval(timer);
-    display.textContent='00:00:00:00'
-    elapsedTime = 0;
-    startTime = 0;
-    isRunning = false;
-    lapDisplay.innerHTML = ''
-    count = 0;
+const element1 = document.querySelectorAll('li')
+element1[4].style.backgroundColor = 'yellow'
 
-}
+element1.forEach(element1 => {
 
-function lap(){
+    element1.style.fontSize = '4em'
 
-    count++;
-
-    const newP = document.createElement('p');
-
-    const currentTime = Date.now();
-    elapsedTime = currentTime - startTime;
-
-    let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
-    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-    let seconds = Math.floor(elapsedTime / 1000 % 60).toString();
-    let milisecs = Math.floor(elapsedTime %  1000 / 10);  
-
-    hours = String(hours).padStart(2,'0');
-    minutes = String(minutes).padStart(2,'0');
-    seconds = String(seconds).padStart(2,'0');
-    milisecs = String(milisecs).padStart(2,'0');
-
-    newP.textContent = `${count} | ${hours}:${minutes}:${seconds}:${milisecs}`;
-
-    lapDisplay.appendChild(newP);
-
-}
-
-function updateDisplay(){
-
-    const currentTime = Date.now();
-    elapsedTime = currentTime - startTime;
-
-    let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
-    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-    let seconds = Math.floor(elapsedTime / 1000 % 60).toString();
-    let milisecs = Math.floor(elapsedTime %  1000 / 10);  
-
-    hours = String(hours).padStart(2,'0');
-    minutes = String(minutes).padStart(2,'0');
-    seconds = String(seconds).padStart(2,'0');
-    milisecs = String(milisecs).padStart(2,'0');
-
-
-    display.textContent = `${hours}:${minutes}:${seconds}:${milisecs}`;
-
-}
+})
