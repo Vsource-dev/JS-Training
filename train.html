@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train</title>
+    <link rel="stylesheet" href="/train.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="panel">
+           <div id="timer">00:00:00:00</div>
+           <div class="control-panel">
+                <button onclick="start()">Start</button>
+                <button onclick="lap()">Lap</button>
+                <button onclick="stop()">Stop</button>
+                <button onclick="reset()">Reset</button>
+           </div>
+           <div id="laps"></div>
+        </div>
+        <div id="roll-result"></div>
+        <div id="roll-images"></div>
+    </div>
+    
+    <script src="/train.js"></script>  
+</body> 
+</html>
