@@ -1,64 +1,18 @@
-// document.addEventListener('keydown', event => {
+const akane_pic = document.getElementById('akane');
+const button = document.getElementById('begone')
 
-//     emoji.textContent = '😍'
-//     emoji.style.backgroundColor = 'tomato'
+button.addEventListener('click', (event) => {
 
-// });
+    if(akane_pic.style.visibility === 'hidden'){
 
-// document.addEventListener('keyup', event => {
+        akane_pic.style.visibility = 'visible';
+        button.textContent = 'Hide';
 
-//     emoji.textContent = '🙈'
-//     emoji.style.backgroundColor = 'lightblue' 
+    }else{
 
-// });
-
-const emoji = document.getElementById('emj');
-
-const movement = 10;
-let x = 0;
-let y = 0;
-
-document.addEventListener('keydown', (event) => {
-
-    emoji.textContent = "🤣";
-    emoji.style.backgroundColor = 'tomato'
-
-})
-
-document.addEventListener('keyup', (event) => {
-
-    emoji.textContent = "🙈";
-    emoji.style.backgroundColor = 'rebeccapurple'
-
-})
-
-document.addEventListener('keydown', (event) => {
-
-    if(event.key.startsWith("Arrow")){
-
-        event.preventDefault();
-        
-        switch(event.key){
-
-            case "ArrowUp":
-                y -= movement
-                break;
-            case "ArrowDown":
-                y += movement;
-                break;
-
-            case "ArrowLeft":
-                x -= movement;
-                break;
-            case "ArrowRight":
-                x += movement
-                break;
-
-        }
-
-        emoji.style.top = `${y}px`
-        emoji.style.left = `${x}px`
-
+        akane_pic.style.visibility = 'hidden';
+        button.textContent = 'show'
+    
     }
 
-})
+});
