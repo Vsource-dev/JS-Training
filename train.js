@@ -1,36 +1,64 @@
-const fruits = document.getElementsByClassName('fruit');
+// document.addEventListener('keydown', event => {
 
-Array.from(fruits).forEach(fruit=> {
+//     emoji.textContent = '😍'
+//     emoji.style.backgroundColor = 'tomato'
 
-    fruit.style.backgroundColor = 'red'
+// });
 
-});
+// document.addEventListener('keyup', event => {
 
-const h4elem = document.getElementsByTagName('h4');
+//     emoji.textContent = '🙈'
+//     emoji.style.backgroundColor = 'lightblue' 
 
-Array.from(h4elem).forEach(h4elem=>{
+// });
 
-    h4elem.style.backgroundColor = 'yellow'
+const emoji = document.getElementById('emj');
 
-});
+const movement = 10;
+let x = 0;
+let y = 0;
 
-const lists = document.getElementsByTagName('li');
+document.addEventListener('keydown', (event) => {
 
-Array.from(lists).forEach(lists => {
+    emoji.textContent = "🤣";
+    emoji.style.backgroundColor = 'tomato'
 
-    lists.style.fontFamily = 'Monospace'
+})
 
-});
+document.addEventListener('keyup', (event) => {
 
-const element = document.querySelector('.fruit');
+    emoji.textContent = "🙈";
+    emoji.style.backgroundColor = 'rebeccapurple'
 
-element.style.backgroundColor = 'green'
+})
 
-const element1 = document.querySelectorAll('li')
-element1[4].style.backgroundColor = 'yellow'
+document.addEventListener('keydown', (event) => {
 
-element1.forEach(element1 => {
+    if(event.key.startsWith("Arrow")){
 
-    element1.style.fontSize = '4em'
+        event.preventDefault();
+        
+        switch(event.key){
+
+            case "ArrowUp":
+                y -= movement
+                break;
+            case "ArrowDown":
+                y += movement;
+                break;
+
+            case "ArrowLeft":
+                x -= movement;
+                break;
+            case "ArrowRight":
+                x += movement
+                break;
+
+        }
+
+        emoji.style.top = `${y}px`
+        emoji.style.left = `${x}px`
+
+    }
 
 })

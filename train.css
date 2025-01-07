@@ -6,12 +6,29 @@
 
 }
 
-.container{
+/* .container{
 
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
+    gap: 1em;
    
+} */
+
+#emj{
+
+    background-color: rebeccapurple;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    position: relative;
+    border-radius: 1em;
+
 }
+
 
