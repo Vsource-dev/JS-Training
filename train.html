@@ -10,8 +10,22 @@
 </head>
 <body>
     <div class="container">
-       <img src="/imgs/Akane.png" alt="akane" width="100px" id="akane">
-       <button id="begone">Akane?</button>
+        <div class="panel">
+            <h1>Rock - Paper - Scissors</h1>
+            <div class="choices">
+                <div id="rock" onclick="playGame('rock')">👊</div>
+                <div id="paper" onclick="playGame('paper')">✋</div>
+                <div id="scissor" onclick="playGame('scissor')">✌️</div>
+            </div>
+            <div id="player-choice">Player: </div>
+            <div id="computer-choice">Computer: </div>
+            <div id="result"></div>
+
+            <div class="score">
+                <div>Player Score: <span id="player-score">0</span></div>
+                <div>Computer Score: <span id="computer-score">0</span></div>
+            </div>
+        </div>
     </div>
     <script src="/train.js"></script>  
 </body> 
