@@ -1,60 +1,54 @@
-const choices = ['rock', 'paper', 'scissor'];
-const playerDisplay = document.getElementById('player-choice');
-const computerDisplay = document.getElementById('computer-choice');
-const results = document.getElementById('result');
-const playerScore = document.getElementById('player-score');
-const computerScore = document.getElementById('computer-score');
-let playerCounter = 0;
-let computerCounter = 0; 
+const slides = document.querySelectorAll('.slides img');
+let slideIndex = 0;
+let intervalID = null;
 
+document.addEventListener('DOMContentLoaded', init_slider);
 
-function playGame(choice){
+function init_slider(){
 
-    const computerChoice = choices[Math.floor(Math.random() * 3)];
-    let result = ``
-    console.log(computerChoice)
+    if(slides.length > 0){
 
-    if(choice === computerChoice){
-
-        result = `IT'S A TIE!`        
-
-    }else{
-
-        switch(choice){
-            case 'rock':
-                result = (computerChoice === 'scissors')  ? 'YOU WIN' : 'YOU LOSE'
-                break;
-            case 'paper':
-                result = (computerChoice === 'rock')  ? 'YOU WIN' : 'YOU LOSE'
-                break;
-            case 'scissor':
-                result = (computerChoice === 'paper')  ? 'YOU WIN' : 'YOU LOSE'
-                break;
-
-        }
-    }
-
-    playerDisplay.textContent = `PLAYER: ${choice}`
-    computerDisplay.textContent = `COMPUTER: ${computerChoice}`
-    results.textContent = result;
-
-    results.classList.remove('correct', 'wrong');
-
-    switch(result){
-
-        case 'YOU WIN':
-            results.classList.add('correct');
-            playerCounter++;
-            playerScore.textContent = playerCounter
-            break;
-        case 'YOU LOSE':
-            results.classList.add('wrong');
-            computerCounter++;
-            computerScore.textContent = computerCounter
-            break;
+        slides[slideIndex].classList.add("displaySlide");
+        intervalID  = setInterval(nextSlide,5000);
 
     }
 
+}
 
+function showSlide(index){
+
+    if(index >= slides.length){
+
+        slideIndex = 0;
+
+    }else if(index < 0){
+
+        slideIndex = slides.length - 1;
+
+    }
+
+    slides.forEach(slide => {
+
+        slide.classList.remove('displaySlide');
+
+    })
+
+    slides[slideIndex].classList.add('displaySlide');
+
+
+}
+
+function nextSlide(){
+
+    slideIndex++;
+    showSlide(slideIndex)
+
+}
+
+function prevSlide(){
+
+    clearInterval(intervalID)
+    slideIndex--;
+    showSlide(slideIndex)
 
 }

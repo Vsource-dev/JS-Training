@@ -11,20 +11,16 @@
 <body>
     <div class="container">
         <div class="panel">
-            <h1>Rock - Paper - Scissors</h1>
-            <div class="choices">
-                <div id="rock" onclick="playGame('rock')">👊</div>
-                <div id="paper" onclick="playGame('paper')">✋</div>
-                <div id="scissor" onclick="playGame('scissor')">✌️</div>
-            </div>
-            <div id="player-choice">Player: </div>
-            <div id="computer-choice">Computer: </div>
-            <div id="result"></div>
-
-            <div class="score">
-                <div>Player Score: <span id="player-score">0</span></div>
-                <div>Computer Score: <span id="computer-score">0</span></div>
-            </div>
+           <div class="slides">
+            <img class="slide" src="/imgs/Iphone/IP1.jpg.png" alt="iphone1">
+            <img class="slide" src="/imgs/Iphone/IP2.jpg.png" alt="iphone2">
+            <img class="slide" src="/imgs/Iphone/IP3.jpg.png" alt="iphone3">
+            <img class="slide" src="/imgs/Iphone/IP4.jpg.png" alt="iphone4">
+            <img class="slide" src="/imgs/Iphone/IP5.jpg.png" alt="iphone5">
+            <img class="slide" src="/imgs/Iphone/IP6.jpg.png" alt="iphone6">
+           </div>
+           <button class="prev" onclick="prevSlide()">&#10094;</button>
+           <button class="next" onclick="nextSlide()">&#10095;</button>
         </div>
     </div>
     <script src="/train.js"></script>  
