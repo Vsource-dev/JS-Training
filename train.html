@@ -11,22 +11,19 @@
 <body>
 
     <div class="container">
-       <form class="weatherForm">
-            <input type="text" name="weatherInput" id="weatherInput" placeholder="Enter city">
-            <button type="submit">Get weather</button>
-       </form>
+       <h1>To-do App</h1>
+       <div class="control-panel">
+            <input type="text" name="todo-input" id="todo-input" placeholder="Enter task">
+            <button onclick="createTask()">+</button>
+       </div>
+       <div class="task-list">
+
+       </div>
+       <div class="control-panel">
+            <p>You have <span id="pending-tasks">0</span> pending task</p>
+            <button onclick="clearTask()">Clear All</button>
+       </div>
     </div>
-
-    <div class="card" style="display: none">
-
-        <!-- <h1 class="cityDisplay">Miami</h1>
-        <p class="tempDisplay">90°</p>
-        <p class="humDisplay">Humidity: 75%</p>
-        <p class="descDisplay">Clear skies</p>
-        <p class="emojiDisplay">☀️</p>
-        <p class="errorDisplay">Please enter a city</p> -->
-
-   </div>
 
     <script src="/train.js"></script>  
 </body> 

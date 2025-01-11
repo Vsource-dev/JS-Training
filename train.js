@@ -1,128 +1,53 @@
-const weatherForm = document.querySelector('.weatherForm');
-const cityInput = document.getElementById('weatherInput');
-const card = document.querySelector('.card');
-const apiKey = 'ff0ccfc9eef75350c783ceb350614a18';
+let taskCounter = 0;
+const list = document.querySelector('.task-list');
+const counter = document.getElementById('pending-tasks');;
 
-weatherForm.addEventListener('submit', async event => {
+function createTask(){
 
-    event.preventDefault();
+    const task = document.getElementById('todo-input').value;
 
-    const city = cityInput.value;
+    if(!task){
 
-    if(city){
-
-        try{
-            const weatherData = await getWeatherData(city)
-            displayWeatherInfo(weatherData)
-        }catch(error){
-            console.error(error);
-            displayError(error)
-        }
-
-    }else{
-        displayError('Please enter city');
-    }
-
-});
-
-async function getWeatherData(city){
-
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-
-    const response = await fetch(apiUrl);
-
-    if(!response.ok){
-
-        throw new Error('Cannot fetch data');
+        alert('Please enter a task');
+        return;
 
     }
 
-    return await response.json();
+    const doTask = document.createElement('div');
+    doTask.classList.add('task');
 
-}
-
-function displayWeatherInfo(data){
-
-   const {name: city, 
-          main: {temp,humidity}, 
-          weather:[{description, id}]} = data;
-
-    card.textContent = '';
-    card.style.display = 'flex';
+    const content = document.createElement('p');
+    content.textContent = task;
     
-    const cityDisplay = document.createElement('h1');
-    const tempDisplay = document.createElement('p');
-    const humDisplay = document.createElement('p');
-    const descDisplay = document.createElement('p');
-    const emojiDisplay = document.createElement('p');
+    const image = document.createElement('img');
+    image.src = '/imgs/delete.png';
+    image.alt = 'delete task'
+    image.style.width = '25px';
+    image.style.cursor = 'pointer';
 
-    cityDisplay.textContent = city;
-    cityDisplay.classList.add('cityDisplay');
-
-    tempDisplay.textContent = `${(temp - 273.25).toFixed(1)}°C`;
-    tempDisplay.classList.add('tempDisplay');
-
-    humDisplay.textContent = `Humidity: ${humidity}`;
-    humDisplay.classList.add('humDisplay');
-
-    descDisplay.textContent = description;
-    descDisplay.classList.add('descDisplay');
-
-    emojiDisplay.textContent = getWeatherEmoji(id);
-    emojiDisplay.classList.add('emojiDisplay');
-    
-    card.append(cityDisplay)
-    card.append(tempDisplay)
-    card.append(humDisplay)
-    card.append(descDisplay)
-    card.append(emojiDisplay)
-
-
-}
-
-function getWeatherEmoji(weatherId){
-
-
-    switch(true){
-
-        case(weatherId >= 200 && weatherId < 300):
-            return '🌩️';
-            break;
-        case(weatherId >= 300 && weatherId < 500):
-            return '🌫️';
-            break;
-        case(weatherId >= 500 && weatherId < 600):
-            return '🌧️'
-            break;
-        case(weatherId >= 600 && weatherId < 700):
-            return '❄️'
-            break;
-        case(weatherId >= 700 && weatherId < 800):
-            return '☁️'
-            break;
-        case(weatherId == 800):
-            return '☀️'
-            break;
-        case(weatherId > 800):
-            return '🌥️'
-            break;
-        default:
-            return '?'
-
+    image.onclick = () => {
+        
+        list.removeChild(doTask); 
+        taskCounter--;
+        counter.textContent = taskCounter;
 
     }
 
+    doTask.append(content,image);
+
+    list.append(doTask);
+
+    taskCounter++
+    counter.textContent = taskCounter;
+
+    document.getElementById('todo-input').value = "";
 
 }
 
-function displayError(message){
+function clearTask(){
 
-    const errorDisplay = document.createElement('p');
-    errorDisplay.textContent  = message;
-    errorDisplay.classList.add('errorDisplay');
+   list.innerHTML = '';
+   taskCounter = 0;
+   counter.textContent = taskCounter;
 
-    card.textContent = '';
-    card.style.display = 'flex';
-    card.appendChild(errorDisplay)
-
-}
+};
