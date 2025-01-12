@@ -8,82 +8,75 @@
 
 body{
 
-    background-color: rgb(255, 251, 251);
+    background-color: #274472;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    gap: 1.5em;
 
 }
 
-.container{
+header{
 
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    padding: 2em;
-    border-radius: 0.4em;
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
-    gap: 1em;
-
-
-}
-
-.control-panel{
-
-    width: 100%;
-    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 0.3em;
-    justify-content: space-between;
-    align-items: center;
+    color: white;
 
 }
 
-.control-panel input{
+.drum-panel{
 
-    padding: 0.5em 1em;
-    font-size: 1em;
-    border: 0.1em solid  #344CB7;
-    border-radius: 0.2em;
-
-}
-
-.control-panel button{
-
-    padding: 0.5em;
-    font-size: 1.1em;
-    font-weight: bold;
-    min-width: 50px;
-    background-color: #344CB7;
-    color: #FFF;
-    border-radius: 0.2em;
-    border: none;
-    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.4em;
 
 }
 
-.task-list{
+.pad{
 
+    width: 100px;
+    height: 100px;
+    padding-left: 1em;
+    background-color: #274472;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    justify-content: center;
+    transition: all 0.2s;
+    border: 1px solid white;
+    border-radius: 0.2em;
+    cursor: pointer;
+    color: white;
 
 }
 
-.task{
+.pad:hover{
 
-    display: flex;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 0.8em 1em;
-    justify-content: space-between;
-    align-items: center;
+    transform: scale(1.2);
+    background-color: #4072c2;
 
 }
 
-.task button{
+.pad:active{
+    background-color: #72a5f5;
 
-    height: 20px;
+}
+
+.pad h2{
+
+    font-size: 2.5em;
+   
+
+}
+
+.animate {
+
+    transform: scale(1.2);
+    background-color: #4072c2;
 
 }
